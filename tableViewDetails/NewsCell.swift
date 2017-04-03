@@ -17,6 +17,7 @@ class NewsCell: UITableViewCell {
         // Initialization code
     }
 
+
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
@@ -27,6 +28,24 @@ class NewsCell: UITableViewCell {
     {
         newsTitle.text = dataModel.articleTitle
         //TO DO: Set image from URL
+        
+        if let url = URL(string: dataModel.imageURL){
+        
+        DispatchQueue.global().async {
+            do {
+                let data = try Data(contentsOf: url)
+                DispatchQueue.main.async {
+                    self.newsPreviewImage.image = UIImage(data: data)
+                }
+                
+            } catch let error as NSError {
+                print(error.debugDescription)
+            }
+        }
+        }
     }   
 
 }
+
+
+
