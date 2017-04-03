@@ -87,7 +87,7 @@
                                 <rect key="frame" x="0.0" y="210" width="375" height="457"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="180" id="HFE-26-rYf">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="NewsCell" rowHeight="180" id="HFE-26-rYf" customClass="NewsCell" customModule="tableViewDetails" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="180"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HFE-26-rYf" id="pbf-Ti-Avw">
@@ -115,6 +115,10 @@
                                                 <constraint firstItem="mFc-dd-tPj" firstAttribute="leading" secondItem="pbf-Ti-Avw" secondAttribute="leadingMargin" id="TuO-4t-fDY"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="newsPreviewImage" destination="mFc-dd-tPj" id="r6M-65-SDi"/>
+                                            <outlet property="newsTitle" destination="XYd-xc-NJ6" id="ao5-xL-mYc"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -139,6 +143,7 @@
                         </userDefinedRuntimeAttributes>
                     </view>
                     <connections>
+                        <outlet property="tableView" destination="69K-et-Fe7" id="dgo-2L-1ZP"/>
                         <segue destination="KC1-YF-lIq" kind="showDetail" identifier="NewsDetailVC" id="IcF-dX-XO7"/>
                     </connections>
                 </viewController>
