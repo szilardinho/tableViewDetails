@@ -74,5 +74,22 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         return nusyntaxNews.count
     }
 
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let nusyntaxNew = nusyntaxNews[indexPath.row]
+        
+        performSegue(withIdentifier: "NewsDetailVC", sender: nusyntaxNew)
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destinationViewController = segue.destination as? NewsDetailViewController {
+            
+            if let news = sender as? NusyntaxDataModel {
+                destinationViewController.newsData = news
+                
+            }
+        }
+    }
+    
 }
 
